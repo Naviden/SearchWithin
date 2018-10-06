@@ -9,8 +9,9 @@ path = '/Users/Navid/Documents/books'
 extention = 'pdf'
 
 ap = argparse.ArgumentParser()
+ap.add_argument("-B", "--book", required=True)
 args = vars(ap.parse_args())
-to_search = args['image']
+to_search = args['book']
 
 
 def prepare(word):
