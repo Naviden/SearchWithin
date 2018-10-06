@@ -19,14 +19,18 @@ for file in files:
         # # get number of pages
         NumPages = object.getNumPages()
 
+
         # extract text and do the search
         errs = 0
         fon = 0
-        for i in range(0, NumPages):
+        i = 0
+        while i < number_of_pages:
             PageObj = object.getPage(i)
             try:
                 Text = PageObj.extractText()
-                ResSearch = re.search(query, Text)
+                pattern = re.compile(query)
+                ResSearch = pattern.search(Text)
+                # ResSearch = re.search(query, Text)
                 if ResSearch is not None:
                     fon += 1
             except:
