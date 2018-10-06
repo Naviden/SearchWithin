@@ -3,17 +3,18 @@
 from PyPDF2 import PdfFileReader
 import re
 
+path = '/Users/Navid/Documents/books'
+book = 'progit.pdf'
 
-pdf = PdfFileReader('clojureforthebraveandtrue.pdf')
+pdf = PdfFileReader(path + f'/{book}')
+# print(pdf)
 number_of_pages = pdf.getNumPages()
 
-
 # define keyterms
-String = "package"
-
+String = "\w*Install\w*"
 
 # extract text and do the search
-# for i in range(0, number_of_pages):
+
 i = 0
 while i < number_of_pages:
     PageObj = pdf.getPage(i)
