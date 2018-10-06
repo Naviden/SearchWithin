@@ -2,10 +2,15 @@ import glob
 from PyPDF2 import PdfFileReader
 import re
 import time
+import argparse
 
 path = '/Users/Navid/Documents/books'
-to_search = 'install'
+# to_search = 'install'
 extention = 'pdf'
+
+ap = argparse.ArgumentParser()
+args = vars(ap.parse_args())
+to_search = args['image']
 
 
 def prepare(word):
@@ -53,3 +58,6 @@ for file in glob.glob(path + '/*.' + extention):
     print(f'Found : {found}')
     print(f'Error % : {err_rate}')
     print('-' * 20)
+
+if __name__ == '__main__':
+    main()
