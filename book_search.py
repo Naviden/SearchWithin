@@ -10,8 +10,15 @@ pdf = PdfFileReader(path + f'/{book}')
 # print(pdf)
 number_of_pages = pdf.getNumPages()
 
+def prepare(word):
+    first_lower = word[0].lower()
+    first_upper = first_lower.upper()
+    rest = word[1:]
+    query = f'\w*({first_lower}|{first_upper}){rest}\w*'
+    return query
+
 # define keyterms
-String = "\w*Install\w*"
+String = prepare('install')
 
 # extract text and do the search
 
