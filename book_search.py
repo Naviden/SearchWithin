@@ -26,6 +26,7 @@ String = prepare('install')
 # extract text and do the search
 
 i = 0
+err = 0
 while i < number_of_pages:
     PageObj = pdf.getPage(i)
     try:
@@ -37,5 +38,8 @@ while i < number_of_pages:
             print('p: ', i + 1, '---')
     except:
         print('p: ', i + 1, '---')
+        err += 1
 
     i += 1
+err_rate = round((err / number_of_pages) * 100, 2)
+print(f'Error % : {err_rate}')
